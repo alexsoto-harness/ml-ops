@@ -1,0 +1,6 @@
+mlruns/*
+.ipynb_checkpoints/*.*
+*.jpg
+*.joblib
+
+.DS_STORE

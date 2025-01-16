@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harness Bank</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #0a529f;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .jumbotron {
+            background-color: #0a529f;
+            color: #fff;
+            padding: 50px 0;
+            margin-bottom: 0;
+        }
+
+        .jumbotron h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .jumbotron p {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #0a529f;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #0a529f;
+            border-color: #0a529f;
+        }
+
+        .btn-primary:hover {
+            background-color: #073a6b;
+            border-color: #073a6b;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .success-banner {
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="harnesslogo.png" height="50" width="50" alt="Company Banner">
+            </div>
+            <div class="company-name">
+            <!-- <h1>Harness Bank</h1> -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Welcome to Harness!!!</h2>
+            <p>Your trusted partner for all your banking needs.</p>
+        </div>
+
+      
+        <!-- Credit Card Loan Approval form -->
+        <div class="card">
+            <div class="card-body">
+    <!-- Your HTML content here -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Credit Card Loan Approval</h1>
+        <div class="success-banner" id="successBanner"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="loanForm">
+                    <!-- Your form fields here -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                    </div>
+                    <!-- More form fields -->
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" >
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberOfChildren">Number of Children</label>
+                        <input type="number" class="form-control" id="numberOfChildren" name="numberOfChildren">
+                    </div>
+                    <div class="form-group">
+                        <label for="income">Income</label>
+                        <input type="number" class="form-control" id="income" name="income" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ownCar">Own Car</label>
+                        <input type="checkbox" class="form-control" id="ownCar" name="ownCar" value="ownCar">
+                    </div>
+                    <div class="form-group">
+                        <label for="house">Own House</label>
+                        <input type="checkbox" class="form-control" id="house" name="house" value="house">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for form submission handling
+        document.getElementById('loanForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting via the browser
+            // Simulate form submission (replace with actual AJAX call if needed)
+            var resultElement = document.getElementById("result");
+            var numberOfChildren = document.getElementById("numberOfChildren").value;
+            var income = document.getElementById("income").value;
+            //var ownCarValue = document.getElementById("ownCar").value;
+            var ownCarValue = document.getElementById("ownCar");
+    
+
+            setTimeout(function() {
+                    // Set the result based on the ownCar value
+
+                    if (ownCarValue.checked) {
+                        document.getElementById('successBanner').style.display = 'block'; // Display the success banner
+                        successBanner.innerHTML = "Congratulations, your credit card application has been approved!";
+                    } else {
+                        document.getElementById('successBanner').style.display = 'block'; // Display the success banner
+                        successBanner.innerHTML = "Unfortunately, your credit card application was not approved this time.";
+                    }
+
+            }, 1000); 
+        });
+    </script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Harness Bank. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

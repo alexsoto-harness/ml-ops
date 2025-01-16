@@ -1,0 +1,84 @@
+{
+    "train": {
+        "confusion_matrix": [
+            [
+                234478,
+                10823
+            ],
+            [
+                18398,
+                136301
+            ]
+        ],
+        "precision": 0.9264362034746201,
+        "recall": 0.8810722758388871,
+        "f1": 0.9031849792759332,
+        "accuracy": 0.9269475
+    },
+    "test": {
+        "confusion_matrix": [
+            [
+                58689,
+                2697
+            ],
+            [
+                4641,
+                33973
+            ]
+        ],
+        "precision": 0.9264521407144805,
+        "recall": 0.8798104314497333,
+        "f1": 0.9025290898464481,
+        "accuracy": 0.92662
+    },
+    "fairness": {
+        "demographic_parity": {
+            "total_number_of_approvals": 38246,
+            "group_0_%": 20.99,
+            "group_1_%": 79.01
+        },
+        "equal_opportunity": {
+            "true_positive_rate": 92.78,
+            "group_0_%": 77.23,
+            "group_1_%": 98.03
+        },
+        "equal_accuracy": {
+            "overall_accuracy": 94.79,
+            "group_0_%": 94.56,
+            "group_1_%": 95.02
+        },
+        "confusion_matrix": {
+            "overall_confusion_matrix": [
+                [
+                    58965,
+                    2421
+                ],
+                [
+                    2789,
+                    35825
+                ]
+            ],
+            "group_0": [
+                [
+                    39723,
+                    500
+                ],
+                [
+                    2219,
+                    7528
+                ]
+            ],
+            "group_1": [
+                [
+                    19242,
+                    1921
+                ],
+                [
+                    570,
+                    28297
+                ]
+            ]
+        }
+    },
+    "feature_importances": "{\"Num_Children\":0.003313552,\"Income\":0.9494736252,\"Own_Car\":0.0144022373,\"Own_Housing\":0.0328105855}"
+}
