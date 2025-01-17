@@ -1,3 +1,4 @@
+import argparse
 import pandas as pd
 import numpy as np
 import mlflow
@@ -262,4 +263,6 @@ def main():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Train a Random Forest model.")
+    args = parser.parse_args()
     main()
