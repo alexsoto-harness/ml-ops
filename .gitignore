@@ -3,6 +3,6 @@ mlruns/*
 *.jpg
 *.joblib
 *.nbconvert.ipynb
-test_scripts/*.ipynb
+model_testing/*.ipynb
 
 .DS_STORE
