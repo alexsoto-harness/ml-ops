@@ -2,5 +2,7 @@ mlruns/*
 .ipynb_checkpoints/*.*
 *.jpg
 *.joblib
+*.nbconvert.ipynb
+test_scripts/*.ipynb
 
 .DS_STORE

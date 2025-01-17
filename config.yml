@@ -5,4 +5,4 @@ model:
   save_metrics_file_path: 'outputs/selected_model_metrics.joblib'
 mlflow:
   experiment_name : 'Harness Example MLOps'
-  run_name : 'Initial Model'
+  tracking_uri : 'https://mlflow.sandbox.harness-demo.site'
