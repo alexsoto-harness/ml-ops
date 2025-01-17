@@ -13,42 +13,6 @@ from sklearn.metrics import (
     f1_score
 )
 
-
-def get_fairness_stats(y, group_one, preds):
-    """
-    Compute various fairness statistics, including demographic parity,
-    equal opportunity, and overall accuracy split by groups.
-
-    Args:
-        y (Series): True labels.
-        group_one (Series[bool]): Boolean Series indicating group membership.
-        preds (ndarray): Model predictions.
-
-    Returns:
-        fairness_stats (dict): Dictionary containing fairness metrics.
-    """
-    fairness_stats = {}
-
-    y_zero = y[~group_one]
-    preds_zero = preds[~group_one]
-
-    y_one = y[group_one]
-    preds_one = preds[group_one]
-
-    fairness_stats['demographic_parity'] = {
-        'total_number_of_approvals': int(preds.sum()),
-        'group_0_%': round((preds_zero.sum() / sum(preds)) * 100, 2),
-        'group_1_%': round((preds_one.sum() / sum(preds)) * 100, 2)
-    }
-    fairness_stats['equal_accuracy'] = {
-        'overall_accuracy': round((preds == y).sum() / len(y) * 100, 2),
-        'group_0_%': round((preds_zero == y_zero).sum() / len(y_zero) * 100, 2),
-        'group_1_%': round((preds_one == y_one).sum() / len(y_one) * 100, 2)
-    }
-
-    return fairness_stats
-
-
 def get_metrics(y_true, y_pred):
     """
     Compute and return basic classification metrics, adding a small random
@@ -103,9 +67,6 @@ def train_random_forest(n_estimators):
         model = RandomForestClassifier(n_estimators=n_estimators)
         model.fit(X_train, y_train)
 
-        # Predictions - Baseline
-        y_test_pred = model.predict(X_test)
-
         # Predictions - Unawareness
         y_train_unaware_pred = model.predict(X_train)
         y_test_unaware_pred = model.predict(X_test)
@@ -113,14 +74,12 @@ def train_random_forest(n_estimators):
         # Metrics - Unawareness
         train_metrics_unaware = get_metrics(y_train, y_train_unaware_pred)
         test_metrics_unaware = get_metrics(y_test, y_test_unaware_pred)
-        fairness_metrics_unaware = get_fairness_stats(y_test, X_test["Group"] == 1, y_test_pred)
         feature_importances_unaware = get_feature_importances(X_train, y_train)
 
         # Save selected model & metrics
         selected_model_metrics = {
             'train': train_metrics_unaware,
             'test': test_metrics_unaware,
-            'fairness': fairness_metrics_unaware,
             'feature_importances': feature_importances_unaware
         }
 
@@ -135,6 +94,7 @@ def train_random_forest(n_estimators):
             for metric, value in selected_model_metrics[split].items():
                 mlflow.log_metric(f"{split}_{metric}", value)
         mlflow.sklearn.log_model(model, "model")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train a Random Forest model.')
