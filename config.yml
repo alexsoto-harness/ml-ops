@@ -4,5 +4,6 @@ model:
   save_file_path: 'outputs/selected_model.joblib'
   save_metrics_file_path: 'outputs/selected_model_metrics.joblib'
 mlflow:
-  experiment_name : 'Harness Example MLOps'
+  #experiment_name : 'Harness Example MLOps'
+  experiment_name : 'Credit Card Approval'
   tracking_uri : 'https://mlflow.sandbox.harness-demo.site'
