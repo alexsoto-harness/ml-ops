@@ -60,6 +60,10 @@ def train_random_forest(n_estimators):
     # Load dataset
     data = load_iris()
     X, y = data.data, data.target
+
+    # Convert X to DataFrame for easier column access
+    X = pd.DataFrame(X, columns=data.feature_names)
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Train model
