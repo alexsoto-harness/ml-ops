@@ -245,6 +245,7 @@ def main():
         'feature_importances': feature_importances_unaware
     }
 
+    mlflow.start_run()
     mlflow.log_params({
         "model_type": model_name,
         "n_features": X.shape[1],
