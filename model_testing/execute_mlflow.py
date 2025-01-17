@@ -71,16 +71,14 @@ def get_confusion_matrix(
     return matrix, disp
 
 
-def get_fairness_stats(X, y, model, group_one, preds):
+def get_fairness_stats(y, group_one, preds):
     """
     Compute various fairness statistics, including demographic parity,
     equal opportunity, and overall accuracy split by groups. Also
     generates confusion matrices for overall, group 0, and group 1.
 
     Args:
-        X (DataFrame): Feature matrix.
         y (Series): True labels.
-        model (sklearn estimator): Trained model.
         group_one (Series[bool]): Boolean Series indicating group membership.
         preds (ndarray): Model predictions.
 
@@ -240,7 +238,7 @@ def main():
     # Metrics - Unawareness
     train_metrics_unaware = get_metrics(y_train, y_train_unaware_pred)
     test_metrics_unaware = get_metrics(y_test, y_test_unaware_pred)
-    fairness_metrics_unaware = get_fairness_stats(X_test, y_test, model_unaware, X_test["Group"] == 1, y_test_pred)
+    fairness_metrics_unaware = get_fairness_stats(y_test, X_test["Group"] == 1, y_test_pred)
     feature_importances_unaware = get_feature_importances(X_train_unaware, y_train)
 
     # Save selected model & metrics

@@ -62,9 +62,9 @@ def get_metrics(y_true, y_pred):
         metrics (dict): Contains confusion matrix, precision, recall, F1, accuracy.
     """
     metrics = {
-        'precision': precision_score(y_true, y_pred) + np.random.uniform(-0.09, 0.1),
-        'recall': recall_score(y_true, y_pred) + np.random.uniform(-0.09, 0.1),
-        'f1': f1_score(y_true, y_pred) + np.random.uniform(-0.09, 0.1),
+        'precision': precision_score(y_true, y_pred, average='weighted') + np.random.uniform(-0.09, 0.1),
+        'recall': recall_score(y_true, y_pred, average='weighted') + np.random.uniform(-0.09, 0.1),
+        'f1': f1_score(y_true, y_pred, average='weighted') + np.random.uniform(-0.09, 0.1),
         'accuracy': accuracy_score(y_true, y_pred) + np.random.uniform(-0.09, 0.1)
     }
     return metrics
