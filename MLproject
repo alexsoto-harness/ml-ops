@@ -4,4 +4,4 @@ conda_env: model_testing/conda.yaml
 
 entry_points:
   main:
-    command: "python model_testing/execute_mlflow_pipeline.py"
+    command: "python model_testing/execute_mlflow.py"
