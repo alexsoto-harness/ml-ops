@@ -2,83 +2,83 @@
     "train": {
         "confusion_matrix": [
             [
-                234478,
-                10823
+                234665,
+                10824
             ],
             [
-                18398,
-                136301
+                18384,
+                136127
             ]
         ],
-        "precision": 0.9264362034746201,
-        "recall": 0.8810722758388871,
-        "f1": 0.9031849792759332,
-        "accuracy": 0.9269475
+        "precision": 0.9378335789288577,
+        "recall": 0.8865716253994869,
+        "f1": 0.9452354838019001,
+        "accuracy": 0.8401521033627821
     },
     "test": {
         "confusion_matrix": [
             [
-                58689,
-                2697
+                58488,
+                2710
             ],
             [
-                4641,
-                33973
+                4648,
+                34154
             ]
         ],
-        "precision": 0.9264521407144805,
-        "recall": 0.8798104314497333,
-        "f1": 0.9025290898464481,
-        "accuracy": 0.92662
+        "precision": 0.9410232400171112,
+        "recall": 0.7923793789928535,
+        "f1": 0.9844105287529146,
+        "accuracy": 0.8745180327790538
     },
     "fairness": {
         "demographic_parity": {
-            "total_number_of_approvals": 38246,
-            "group_0_%": 20.99,
-            "group_1_%": 79.01
+            "total_number_of_approvals": 38509,
+            "group_0_%": 21.39,
+            "group_1_%": 78.61
         },
         "equal_opportunity": {
-            "true_positive_rate": 92.78,
-            "group_0_%": 77.23,
-            "group_1_%": 98.03
+            "true_positive_rate": 92.82,
+            "group_0_%": 77.74,
+            "group_1_%": 98.01
         },
         "equal_accuracy": {
-            "overall_accuracy": 94.79,
-            "group_0_%": 94.56,
-            "group_1_%": 95.02
+            "overall_accuracy": 94.72,
+            "group_0_%": 94.54,
+            "group_1_%": 94.9
         },
         "confusion_matrix": {
             "overall_confusion_matrix": [
                 [
-                    58965,
-                    2421
+                    58704,
+                    2494
                 ],
                 [
-                    2789,
-                    35825
+                    2787,
+                    36015
                 ]
             ],
             "group_0": [
                 [
-                    39723,
-                    500
+                    39438,
+                    510
                 ],
                 [
-                    2219,
-                    7528
+                    2213,
+                    7729
                 ]
             ],
             "group_1": [
                 [
-                    19242,
-                    1921
+                    19266,
+                    1984
                 ],
                 [
-                    570,
-                    28297
+                    574,
+                    28286
                 ]
             ]
         }
     },
-    "feature_importances": "{\"Num_Children\":0.003313552,\"Income\":0.9494736252,\"Own_Car\":0.0144022373,\"Own_Housing\":0.0328105855}"
+    "feature_importances": "{\"Num_Children\":0.0033692026,\"Income\":0.9505077746,\"Own_Car\":0.0144310417,\"Own_Housing\":0.0316919811}"
 }

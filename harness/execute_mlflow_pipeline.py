@@ -1,9 +1,9 @@
 import argparse
+import yaml
 import pandas as pd
 import numpy as np
 import mlflow
 import mlflow.sklearn
-from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
@@ -57,14 +57,8 @@ def get_feature_importances(X, y):
     return forest_importances.to_json()
 
 
-def train_random_forest(n_estimators):
-    # Load dataset
-    data = load_iris()
-    X, y = data.data, data.target
-
-    # Convert X to DataFrame for easier column access
-    X = pd.DataFrame(X, columns=data.feature_names)
-
+def train_random_forest(X, y, n_estimators):
+    # Train test split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Train model
@@ -101,9 +95,23 @@ def train_random_forest(n_estimators):
         mlflow.sklearn.log_model(model, "model")
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description='Train a Random Forest model.')
     parser.add_argument('--n_estimators', type=int, default=100, help='Number of trees in the forest.')
     args = parser.parse_args()
 
-    train_random_forest(n_estimators=args.n_estimators)
+    config_file_path = "../config.yml"
+    with open(config_file_path, "r") as file:
+        config = yaml.safe_load(file)
+    data_file_path = config['data']['load_file_path']
+
+    # Load dataset
+    data = pd.read_csv(data_file_path)
+    X = data.drop(["Target"], axis=1)
+    y = data["Target"]
+
+    train_random_forest(X, y, n_estimators=args.n_estimators)
+
+
+if __name__ == "__main__":
+    main()
