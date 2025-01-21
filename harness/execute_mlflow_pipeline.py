@@ -100,7 +100,7 @@ def main():
     parser.add_argument('--n_estimators', type=int, default=100, help='Number of trees in the forest.')
     args = parser.parse_args()
 
-    config_file_path = "../config.yml"
+    config_file_path = "config.yml"
     with open(config_file_path, "r") as file:
         config = yaml.safe_load(file)
     data_file_path = config['data']['load_file_path']
