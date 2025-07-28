@@ -4,6 +4,10 @@ FROM public.ecr.aws/lambda/python:3.10
 # Set the working directory to the Lambda task root (recommended by AWS)
 WORKDIR ${LAMBDA_TASK_ROOT}
 
+# Install dependencies for building packages, including those needed for LightGBM and other compiled extensions
+RUN yum update -y && \
+    yum install -y gcc gcc-c++ make cmake libgomp
+
 # Copy everything to the container image
 COPY . .
 
