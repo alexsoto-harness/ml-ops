@@ -11,4 +11,3 @@ shap
 six
 xgboost
 notebook
-lightgbm
