@@ -1,7 +1,7 @@
 joblib
 mlflow
 nbval
-numpy
+numpy<2.0.0
 optuna
 pandas
 papermill
