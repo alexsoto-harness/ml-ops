@@ -17,6 +17,3 @@ COPY . /app
 # Install Python requirements and build LightGBM
 RUN pip install -r requirements.txt && \
     pip install lightgbm
-
-# Optional: verify cmake version (helpful while debugging builds)
-# RUN cmake --version
