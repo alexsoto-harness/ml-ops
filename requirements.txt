@@ -5,6 +5,7 @@ numpy
 optuna
 pandas
 papermill
+pyarrow==14.0.1
 pytest
 scikit-learn
 shap
