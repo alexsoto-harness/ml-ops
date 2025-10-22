@@ -1,13 +1,14 @@
 joblib
 mlflow
 nbval
-numpy
+numpy<2.0.0
 optuna
 pandas
 papermill
+pyarrow==14.0.1
 pytest
 scikit-learn
 shap
 six
-xgboost
+xgboost==2.0.3
 notebook
