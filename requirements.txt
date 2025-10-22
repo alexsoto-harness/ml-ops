@@ -9,5 +9,5 @@ pytest
 scikit-learn
 shap
 six
-xgboost
+xgboost==2.0.3
 notebook
